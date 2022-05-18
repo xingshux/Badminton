@@ -144,6 +144,7 @@ elif service == "Update":
         else:
             update_value = st.text_input("Updated Value")
         update(name_input,[u],update_value,H2H_copy)
+        H2H_copy[H2H_copy["Name"] == name_input]["Total"] = H2H_copy[H2H_copy["Name"] == name_input]["Win"] + H2H_copy[H2H_copy["Name"] == name_input]["Lose"]
         st.dataframe(H2H_copy[H2H_copy["Name"] == name_input])
         check = st.checkbox("Confirm the updated H2H")
         if check:
